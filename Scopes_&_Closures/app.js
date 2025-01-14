@@ -89,6 +89,7 @@ function idGenerator(){
     }
 }
 
+//Allow use to make private variables
 function createCounter(){
     let count = 0;
     return {
@@ -100,6 +101,7 @@ function createCounter(){
         },
         getCount:function(){
             return count;
+            
         }
     }
 }
@@ -112,3 +114,41 @@ function createExponentFunction(exponent){
 const square = createExponentFunction(2);
 const cube = createExponentFunction(3);
 
+console.log(square);
+//Event Listeners
+document.querySelector('button').addEventListener('click', (function(){
+    let count = 0;
+    return function(){
+        count++;
+        console.log(`You clicked ${count} times`);
+    }
+})());
+
+function counterClickedFunction(id){
+const btn = document.getElementById(id);
+let count = 0;
+btn.addEventListener('click', () => {
+    
+    count++;
+    btn.innerText =`Button clicked ${count} times.`;
+});
+}
+
+counterClickedFunction("btn1")
+counterClickedFunction("btn2")
+
+
+
+//clousure Loops
+
+setTimeout(function(){
+    console.log("Times Up!");
+},200)
+
+for (var i = 0; i < 6; i++){
+    (function(j){
+        setTimeout(function(){
+            console.log(j);
+        }, 1000*j)
+    }(i))
+}
