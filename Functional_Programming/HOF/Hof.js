@@ -23,3 +23,4 @@ const double = multiplyBy(2);
 
 console.log(triple(4)); // 12
 console.log(double(4)); // 8
+
