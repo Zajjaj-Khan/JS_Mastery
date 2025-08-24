@@ -3,7 +3,7 @@
 const POKEMON_API_BASE = "https://pokeapi.co/api/v2/pokemon/";
 
 // ================================
-// 1. CALLBACK FUNCTION EXAMPLE
+// 1. CALLBACK FUNCTION EXAMPLE             
 // ================================
 
 // Traditional callback function for fetching Pokemon data
