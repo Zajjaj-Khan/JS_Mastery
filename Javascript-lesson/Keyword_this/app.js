@@ -2,7 +2,8 @@ const conan = {
     firstName: "John",
     lastName: "Doe",
     fullName: function() {
-        return this.firstName + " " + this.lastName;
+          console.log("THe value of this is:", this)
+        console.log(this.firstName + " " + this.lastName);
     }
 };
 
@@ -10,6 +11,8 @@ const lisa = {
     firstName: "Lisa",
     lastName: "Doe",
 };
+
+
 
 
 
@@ -60,16 +63,48 @@ function sum(){
 }
 
 //Bind 
+conan.fullName.bind(lisa);
+
+const lisaFullName = conan.fullName.bind(lisa);
 
 
+const fullName = conan.fullName.bind(conan); 
+
+//Binding Arg
+function applySalesTax(price,taxRate){
+    return price + price + taxRate
+}
+const applyCASalesTax = applySalesTax.bind(null,0.0725);
+const applyMTSalesTax = applySalesTax.bind(null,0);
+
+const btn =document.querySelector("button")
+btn.addEventListener("click", conan.fullName.bind(conan))
 
 
-
-
-
+class Counter {
+    constructor(startingNum= 0,incrementAmt=1){
+        this.count  =startingNum;
+        this.incrementAmt = incrementAmt
+    }
+    start(){
+        setInterval(this.incrementAndPrint.bind(this),1000)
+    }
+    incrementAndPrint(){
+            console.log("Value of this", this)
+            console.log(this.count);
+            this.count += this.incrementAmt
+        }
+}
 
 //Arrow Function 
 const add = (x,y) =>{
     return x+y
 }
 //These Arrow Functions dont make there own This
+const Object = {
+    name:'John',
+    greet: ()=>{
+        console.log("THis is:",this)
+        console.log(`This is ${Object.name}`)
+    }
+}
